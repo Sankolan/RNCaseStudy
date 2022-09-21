@@ -37,6 +37,10 @@ const DisneyCharListScreen = (props) => {
     dispatch(disneyCharActions.searchCharactersAction(text));
   };
 
+  handleOnTextClear = () => {
+    dispatch(disneyCharActions.searchCharactersAction(""));
+  };
+
   // init
   useEffect(() => {
     setIsLoading(true);
@@ -98,7 +102,9 @@ const DisneyCharListScreen = (props) => {
     <View>
     <SearchBar style={{margin:10}}
                 placeholder="Search here"
-                onChangeText={handleOnChangeText}>       
+                onChangeText={handleOnChangeText}
+                onClearPress={handleOnTextClear}
+                >       
     </SearchBar>
     <FlatList
       testID="character-list"
